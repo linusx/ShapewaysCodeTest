@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container">
+        <div id="products" class="row list-group">
+            {% if products %}
+                {% for product in products %}
+                    {% include 'product/card.twig' with product %}
+                {% endfor %}
+            {% else %}
+                <h3>No Products Found</h3>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

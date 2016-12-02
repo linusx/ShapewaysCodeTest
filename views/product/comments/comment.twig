@@ -1,0 +1,11 @@
+<li class="media comment">
+    <div id="comment-{{ id }}" class="panel {{ is_read != 'true' ? 'panel-warning comment_unread' : 'panel-default comment_read' }}" data-product="{{ slug }}" data-id="{{ id }}">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ firstname }}</h3>
+            <small>{{ comment_created_at|date("F jS \\a\\t g:ia") }}</small>
+        </div>
+        <div class="panel-body">
+            {{ the_comment }}
+        </div>
+    </div>
+</li>

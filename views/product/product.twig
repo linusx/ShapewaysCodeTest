@@ -1,0 +1,50 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="content-wrapper">
+            <div class="item-container">
+                <div class="container">
+                    <div class="col-md-3">
+                        <div class="product col-md-12 service-image-left">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="product-title">{{ product.name }}</div>
+                        <div class="product-desc">{{ product.description }}</div>
+                        <div class="product-price">${{ product.price|number_format(2, '.', ',') }}</div>
+                        <hr>
+                        <div class="btn-group cart">
+                            <button id="add-to-cart" type="button" class="btn btn-success">
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="col-md-12 product-info">
+                    <ul id="myTab" class="nav nav-tabs nav_tabs">
+                        <li class="active"><a href="#comments" data-toggle="tab">COMMENTS&nbsp;<span class="unread-count badge">{{ unread ? unread : '' }}</span></a></li>
+                        <li><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="comments">
+                            <section class="container">
+                                {% include 'product/comments/list.twig' with comments %}
+                            </section>
+                        </div>
+                        <div class="tab-pane fade" id="service-one">
+                            <section class="container product-info">
+                                {{ product.description }}
+                            </section>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
